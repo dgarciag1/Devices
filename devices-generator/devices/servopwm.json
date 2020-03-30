@@ -1,0 +1,67 @@
+{
+	"name": "servopwm",
+	"macros": [
+		{
+			"name": "lib",
+			"output": "first",
+			"macro": "include",
+			"once": true,
+			"parameters": [
+				"Servo",
+				"true"
+			]
+		},
+		{
+			"name": "servo",
+			"output": "variables",
+			"macro": "blankvariable",
+			"once": false,
+			"parameters": [
+				"Servo",
+				"%remote_label%"
+			]
+		},
+		{
+			"name": "begin",
+			"output": "setup",
+			"macro": "callfrom",
+			"once": false,
+			"parameters": [
+				"%remote_label%",
+				"attach",
+				"%var_pin%"
+			]
+		}
+	],
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "pwmPin",
+			"digitalPin": "P0",
+			"pinMode": "DEVICE"
+		},
+		{
+			"name": "position",
+			"scope": "dynamic",
+			"type": "int"
+		}
+	],
+	"writeActions": [
+		{
+			"name": "setPosition",
+			"instructions": [
+				{
+					"sdk": false,
+					"fname": "%remote_label%.write",
+					"optional": false,
+					"parameters": [
+						"position"
+					]
+				}
+			]
+		}
+	],
+	"pwmPins": [
+		"P0"
+	]
+}

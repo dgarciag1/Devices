@@ -1,0 +1,92 @@
+{
+	"name": "dht11",
+	"macros": [
+		{
+			"name": "lib",
+			"output": "first",
+			"macro": "include",
+			"once": true,
+			"parameters": [
+				"DHT",
+				"true"
+			]
+		},
+		{
+			"name": "pindir",
+			"output": "pin",
+			"macro": "define",
+			"once": false,
+			"parameters": [
+				"%remote_id%_DHTPIN",
+				"%var_pin%"
+			]
+		},
+		{
+			"name": "typedir",
+			"output": "directive",
+			"macro": "define",
+			"once": false,
+			"parameters": [
+				"%remote_id%_DHTTYPE",
+				"DHT11"
+			]
+		},
+		{
+			"name": "sensor",
+			"output": "variables",
+			"macro": "customvariable",
+			"once": false,
+			"parameters": [
+				"DHT",
+				"%remote_label%",
+				"%remote_id%_DHTPIN",
+				"%remote_id%_DHTTYPE"
+			]
+		},
+		{
+			"name": "begin",
+			"output": "setup",
+			"macro": "callfrom",
+			"once": false,
+			"parameters": [
+				"%remote_label%",
+				"begin"
+			]
+		}
+	],
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "analogPin",
+			"digitalPin": "A0",
+			"pinMode": "DEVICE"
+		}
+	],
+	"readActions": [
+		{
+			"name": "getTemperature",
+			"return": "float",
+			"instructions": [
+				{
+					"sdk": false,
+					"fname": "%remote_label%.readTemperature",
+					"parameters": []
+				}
+			]
+		},
+		{
+			"name": "getHumidity",
+			"return": "float",
+			"instructions": [
+				{
+					"sdk": false,
+					"fname": "%remote_label%.readHumidity",
+					"parameters": []
+				}
+			]
+		}
+	],
+	"analogPins": [
+		"A0"
+	]
+}

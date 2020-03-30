@@ -1,0 +1,30 @@
+{
+	"name": "tmp36",
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "analogPin",
+			"analogPin": "A0",
+			"pinMode": "INPUT"
+		}
+	],
+	"readActions": [
+		{
+			"name": "getTemperature",
+			"return": "boolean",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "analogRead",
+					"optional": false,
+					"parameters": [
+						"pin"
+					]
+				}
+			]
+		}
+	],
+	"digitalPins": [
+		"A0"
+	]
+}

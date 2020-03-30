@@ -1,0 +1,56 @@
+{
+	"name": "led",
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "digitalPin",
+			"digitalPin": "D0",
+			"pinMode": "OUTPUT"
+		},
+		{
+			"name": "led_on",
+			"scope": "static",
+			"type": "int",
+			"literal": "1"
+		},
+		{
+			"name": "led_off",
+			"scope": "static",
+			"type": "int",
+			"literal": "0"
+		}
+	],
+	"writeActions": [
+		{
+			"name": "on",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "digitalWrite",
+					"optional": false,
+					"parameters": [
+						"pin",
+						"led_on"
+					]
+				}
+			]
+		},
+		{
+			"name": "off",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "digitalWrite",
+					"optional": false,
+					"parameters": [
+						"pin",
+						"led_off"
+					]
+				}
+			]
+		}
+	],
+	"digitalPins": [
+		"D0"
+	]
+}

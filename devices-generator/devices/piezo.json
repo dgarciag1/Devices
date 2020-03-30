@@ -1,0 +1,85 @@
+{
+	"name": "piezo",
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "digitalPin",
+			"digitalPin": "D0",
+			"pinMode": "OUTPUT"
+		},
+		{
+			"name": "frecuency",
+			"scope": "dynamic",
+			"type": "float"
+		},
+		{
+			"name": "duration",
+			"scope": "static",
+			"type": "float",
+			"literal": "100.0"
+		},
+		{
+			"name": "piezo_off",
+			"scope": "static",
+			"type": "float",
+			"literal": "0.0"
+		},
+		{
+			"name": "lapse",
+			"scope": "static",
+			"type": "int",
+			"literal": "400"
+		}
+	],
+	"writeActions": [
+		{
+			"name": "turnOn",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "tone",
+					"optional": false,
+					"parameters": [
+						"pin",
+						"frecuency",
+						"duration"
+					]
+				},
+				{
+					"sdk": true,
+					"fname": "delay",
+					"optional": false,
+					"parameters": [
+						"lapse"
+					]
+				}
+			]
+		},
+		{
+			"name": "turnOff",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "tone",
+					"optional": false,
+					"parameters": [
+						"pin",
+						"piezo_off",
+						"duration"
+					]
+				},
+				{
+					"sdk": true,
+					"fname": "delay",
+					"optional": false,
+					"parameters": [
+						"lapse"
+					]
+				}
+			]
+		}
+	],
+	"digitalPins": [
+		"D0"
+	]
+}

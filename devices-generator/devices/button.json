@@ -1,0 +1,30 @@
+{
+	"name": "button",
+	"variables": [
+		{
+			"name": "pin",
+			"scope": "analogPin",
+			"analogPin": "A0",
+			"pinMode": "INPUT"
+		}
+	],
+	"readActions": [
+		{
+			"name": "isPressed",
+			"return": "boolean",
+			"instructions": [
+				{
+					"sdk": true,
+					"fname": "analogRead",
+					"optional": false,
+					"parameters": [
+						"pin"
+					]
+				}
+			]
+		}
+	],
+	"digitalPins": [
+		"A0"
+	]
+}

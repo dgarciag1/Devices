@@ -1,0 +1,133 @@
+{
+		"name": "ledRGB",
+		"variables": [
+			{
+				"name": "pinRED",
+				"scope": "analogPin",
+				"digitalPin": "A0",
+				"pinMode": "OUTPUT"
+			},
+			{
+				"name": "pinGREEN",
+				"scope": "analogPin",
+				"digitalPin": "A1",
+				"pinMode": "OUTPUT"
+			},
+			{
+				"name": "pinBLUE",
+				"scope": "analogPin",
+				"digitalPin": "A2",
+				"pinMode": "OUTPUT"
+			},
+			{
+				"name": "intensityRED",
+				"scope": "dynamic",
+				"type": "float"
+			},
+			{
+				"name": "intensityGREEN",
+				"scope": "dynamic",
+				"type": "float"
+			},
+			{
+                "name": "intensityBLUE",
+				"scope": "dynamic",
+				"type": "float"			
+			},
+			{
+			    "name": "ledRGB_off",
+				"scope": "static",
+				"type": "float",
+				"literal": "0"
+			}
+		],
+		"writeActions": [
+			{
+				"name": "RED_on",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinRED",
+							"intensityRED"
+						]
+					}
+				]
+			},
+			{
+				"name": "GREEN_on",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinGREEN",
+							"intensityGREEN"
+						]
+					}
+				]
+			},
+			{
+				"name": "BLUE_on",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinBLUE",
+							"intensityBLUE"
+						]
+					}
+				]
+			},
+			{
+				"name": "RED_off",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinRED",
+							"ledRGB_off"
+						]
+					}
+				]
+			},
+			{
+				"name": "GREEN_off",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinGREEN",
+							"ledRGB_off"
+						]
+					}
+				]
+			},
+			{
+				"name": "BLUE_off",
+				"instructions": [
+					{
+						"sdk": true,
+						"fname": "analogWrite",
+						"optional": false,
+						"parameters": [
+							"pinBLUE",
+							"ledRGB_off"
+						]
+					}
+				]
+			}
+		],
+		"analogPins": [
+			"A0","A1","A2"
+		]
+	}

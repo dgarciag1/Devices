@@ -1,0 +1,89 @@
+{
+	"name": "keypad",
+	"macros": [
+		{
+			"name": "lib",
+			"output": "first",
+			"macro": "include",
+			"once": true,
+			"parameters": [
+				"Keypad",
+				"true"
+			]
+		},
+		{
+			"name": "rows",
+			"output": "variables",
+			"macro": "constvariable",
+			"once": true,
+			"parameters": [
+				"byte",
+				"%remote_label%_rows",
+				"4"
+			]
+		},
+		{
+			"name": "cols",
+			"output": "variables",
+			"macro": "constvariable",
+			"once": true,
+			"parameters": [
+				"byte",
+				"%remote_label%_cols",
+				"4"
+			]
+		},
+		{
+			"name": "keypadmatriz",
+			"output": "variables",
+			"macro": "matrix",
+			"once": true,
+			"parameters": [
+				"char",
+				"%remote_label%_keys",
+				"%remote_label%_rows",
+				"%remote_label%_cols",
+				"{{ '1','2','3', 'A' },{ '4','5','6', 'B' }, { '7','8','9', 'C' }, { '#','0','*', 'D' }}"
+			]
+		},
+		{
+			"name": "rowspins",
+			"output": "variables",
+			"macro": "array",
+			"once": true,
+			"parameters": [
+				"byte",
+				"%remote_label%_rowspins",
+				"%remote_label%_rows",
+				"{ 9,8,7,6}"
+			]
+		},
+		{
+			"name": "colspins",
+			"output": "variables",
+			"macro": "array",
+			"once": true,
+			"parameters": [
+				"byte",
+				"%remote_label%_colspins",
+				"%remote_label%_cols",
+				"{ 5,4,3,2}"
+			]
+		},
+		{
+		   "name": "keypad",
+		   "output": "variables",
+		   "macro": "customvariable",
+	       "once": false,
+	       "parameters": [
+			   "Keypad",
+			   "%remote_label%",
+			   "makeKeymap(%remote_label%_keys)",
+			   "%remote_label%_rowspins",
+			   "%remote_label%_colspins",
+			   "%remote_label%_rows",
+			   "%remote_label%_cols"
+		   ]
+		}
+	]
+}
